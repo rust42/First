@@ -1,7 +1,11 @@
 name: Push image
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
   workflow_call:
+    inputs:
+      chart:
+        required: true
+        type: string
 
 jobs:
     build:
@@ -9,7 +13,7 @@ jobs:
 
         steps:
         - name: Print name
-          run: echo "Hello from first app"
+          run: echo "Hello, I am deploying ${{ inputs.chartType }}"
           
       
 
